@@ -8,24 +8,17 @@
         <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
         <title>Вопрос</title>         
     </head>     
-    <body>{% load staticfiles %}
-        <meta charset="UTF-8"/> 
-        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
-        <meta http-equiv="X-UA-Compatible" content="ie=edge"/> 
-        <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
-        <title>Вопрос</title>         
+    <body>
         <header> 
-            <h1><u><a href="http://127.0.0.1:8000/">Вернуться назад</a></u></h1> 
+            <h1><u>Мой вопрос</u></h1> 
         </header>         
-        <div class="container">
-            <p style="font-size: 50px;">{% block content %}  </p>
-            <p></p>
+        <div class="container">{% block content %}
             <div class="details"> 
                 <h2><p style="font-size: 40px;">{{ article.title }}</p><p></p></h2> 
-                <p style="font-size: 43px;">{{ article.body }}</p> 
+                <p>{{ article.body }}</p> 
             </div>             
             {% endblock content %}
-            <p><br/></p> 
+            <p><br/></p>
         </div>
         <div class="container">
             <div></div>
