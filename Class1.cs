@@ -8,5 +8,4 @@ font-color: #white;
             font-family:sans-serif;
 }
 
-public void func();
 }
