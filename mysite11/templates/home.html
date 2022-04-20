@@ -1,0 +1,92 @@
+{% load static %}
+<!DOCTYPE html> 
+<html lang="rus"> 
+    <head> 
+        <meta charset="UTF-8"/> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/> 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/>
+        <link rel="stylesheet" href="substyle.css">
+        <link rel="stylesheet" href="style.css">
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+        <title>Guideforstud</title>         
+    </head>     
+    <body>
+        {% load static %}
+        <meta charset="UTF-8"/> 
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/> 
+        <meta http-equiv="X-UA-Compatible" content="ie=edge"/> 
+        <link rel="stylesheet" href="{% static 'css/style.css' %}"/> 
+        <title>Guideforstud</title>         
+
+<nav class="navbar fixed-top navbar-expand-lg navbar-light" style="background-color: #e3f2fd;">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="#">Сайт-справочник для студентов</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarScroll" aria-controls="navbarScroll" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarScroll">
+        <ul class="navbar-nav me-auto my-2 my-lg-0 navbar-nav-scroll" style="--bs-scroll-height: 100px;">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="#">Главная</a>
+          </li>
+          
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarScrollingDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+              Категории
+            </a>
+            <ul class="dropdown-menu" aria-labelledby="navbarScrollingDropdown">
+                <ul>
+                    <li><a href="#">Навигация</a></li>
+                    <li><a href="#item37">Экзамены</a></li>
+                    <li><a href="#item45">Материалы</a></li>
+                    <li><a href="#item49">ГУИМЦ</a></li>
+                    <li><a href="#item56"> Oбщежитиe</a></li>
+                    <li><a href="#item62">Учеба</a></li>
+                    <li><a href="#item173">Оффтоп</a></li>
+                </ul>
+            </ul>
+          </li>
+          
+        </ul>
+        <form class="d-flex">
+          <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success" type="submit">Search</button>
+        </form>
+      </div>
+    </div>
+  </nav>
+  <br>
+  <br>
+  <br>
+  <p>&nbsp;&nbsp;&nbsp;Каждый год у первокурсников возникают трудности с адаптацией, ориентацией в новом и непривычном месте в начале учебного года. Чтобы решить эти проблемы мы решили создать сайт-помощник &nbsp;для студентов. Кроме того, сайт поможет упростить процесс адаптации первокурсника к новой среде обучения, а также разгрузить кураторов групп. В МГТУ до сих пор нет единой справочной системы. &nbsp;Всё, что дают первокурсникам, это краткий гайд, о котором они в первые же дни забывают, а потом уточняют у куратора.
+    Справочник содержит самую большую базу вопросов. 
+</p>            
+                                                       
+                                                        
+      </body>                                         
+      
+        <div class="container">{% block content %}
+            <div class="accordion" id="accordionExample">
+            {% for i in object_list %}
+            <div id="item{{i.pk}}" class="accordion-item">
+                <h2 class="accordion-header" id="heading{{i.pk}}">
+                  <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse{{i.pk}}" aria-expanded="false" aria-controls="collapse{{i.pk}}">
+                    {{i.title}}
+                  </button>
+                </h2>
+                <div id="collapse{{i.pk}}" class="accordion-collapse collapse" aria-labelledby="heading{{i.pk}}" data-bs-parent="#accordionExample">
+                  <div class="accordion-body">
+                      {{i.body | safe}}
+                  </div>
+                </div>
+              </div>      
+            {% endfor %}
+            </div>
+        </div> 
+            {% endblock content %}
+    </body>     
+    <br>
+</html>
+
